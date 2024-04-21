@@ -3,8 +3,12 @@ local null_ls = require("null-ls")
 
 local opts = {
   sources = {
-    null_ls.builtins.diagnostics.eslint,
-    null_ls.builtins.formatting.prettier,
+	  require("none-ls.diagnostics.eslint_d"),
+		require("none-ls.formatting.eslint_d"),
+		require("none-ls.code_actions.eslint_d"),
+    null_ls.builtins.formatting.prettierd,
+    null_ls.builtins.diagnostics.rubocop,
+    null_ls.builtins.formatting.rubocop,
   },
   on_attach = function(client, bufnr)
     if client.supports_method("textDocument/formatting") then
